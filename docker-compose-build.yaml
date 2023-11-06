@@ -24,7 +24,7 @@ services:
     ports:
       - ${APP_PORT}:80
     volumes:
-      - .:/code
+      - ./src:/code/src
     networks:
       - web-app-network
 

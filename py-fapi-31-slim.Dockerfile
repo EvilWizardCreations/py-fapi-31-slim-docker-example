@@ -5,11 +5,13 @@ LABEL evilwizardcreations.image.authors="evil.wizard95@googlemail.com" \
     evilwizardcreations.image.python.version="3.10"
 
 ARG APP_VER=local
+ENV APP_VER=$APP_VER
 
 WORKDIR /code
 
 COPY ./build-assets/python/requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip; \
+    pip install --no-cache-dir -r requirements.txt
 
 COPY ./src ./src
 
