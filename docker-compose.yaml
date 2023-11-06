@@ -1,0 +1,25 @@
+version: '3.4'
+
+# Services/Containers to orchestrate in this composition
+services:
+
+  # Basic Python Fast CGI Image Container
+  py-fapi-31-slim:
+    container_name: py-fapi-31-slim
+    tty: true
+    restart: unless-stopped
+    image: ${PY_FAPI_31_SLIM_DOCKER_IMAGE}:${PY_FAPI_31_SLIM_DOCKER_IMAGE_TAG}
+    environment:
+        - APP_VER=${APP_VER}
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - .:/code
+    network_mode: host
+    networks:
+      - web-app-network
+
+# Custom network for composed containers to communicate on
+networks:
+  web-app-network:
+    driver: bridge
