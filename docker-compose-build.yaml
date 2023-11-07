@@ -15,8 +15,8 @@ services:
       args:
         - APP_VER=${APP_VER}
       labels:
-        com.example.description: "Python FastAPI webapp"
-        com.example.name: "Sophie Chat"
+        com.example.name: "Python FAPI Web Server"
+        com.example.description: "${PY_FAPI_31_SLIM_DOCKER_BUILD_DESC}"
         com.example.label-with-empty-value: ""
     image: ${PY_FAPI_31_SLIM_DOCKER_IMAGE}:${PY_FAPI_31_SLIM_DOCKER_IMAGE_TAG}
     environment:
